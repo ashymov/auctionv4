@@ -24,12 +24,9 @@ public class LotServiceImpl implements LotService {
         lot=lotRepository.save(lot);
         return ClassMapper.INSTANCE.LotToLotDto(lot);
     }
-
     @Override
-    public StatusDto saveStatus(StatusDto statusDto) {
-        Status status=ClassMapper.INSTANCE.StatusDtoToStatus(statusDto);
-        status=statusRepository.save(status);
-        return ClassMapper.INSTANCE.StatusToStatusDto(status);
+    public LotDto findById(Long id) {
+        return null;
     }
 
 }

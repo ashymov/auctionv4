@@ -1,27 +1,24 @@
 package kg.megacom.auctionv2.controller;
 
 import kg.megacom.auctionv2.entities.dto.LotDto;
-import kg.megacom.auctionv2.entities.dto.StatusDto;
 import kg.megacom.auctionv2.service.LotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/admin")
+@RequestMapping(value = "/lot")
 public class LotController {
     @Autowired
     private LotService lotService;
 
-    @PostMapping(value = "/lot/save")
+    @PostMapping(value = "/save")
     public ResponseEntity<?> saveLot(@RequestBody LotDto lotDto) {
         return ResponseEntity.ok(lotService.saveLot(lotDto));
     }
-    @PostMapping(value = "status/save")
-    public ResponseEntity<?> saveStatus(StatusDto statusDto){
-        return ResponseEntity.ok(lotService.saveStatus(statusDto));
+    @GetMapping(value = "/get{id}")
+    public ResponseEntity<?> findById(Long id){
+        return ResponseEntity.ok(lotService.findById(id));
     }
+
 }

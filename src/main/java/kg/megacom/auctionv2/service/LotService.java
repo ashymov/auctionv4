@@ -5,6 +5,6 @@ import kg.megacom.auctionv2.entities.dto.StatusDto;
 
 public interface LotService {
     LotDto saveLot(LotDto lotDto);
-    StatusDto saveStatus(StatusDto statusDto);
+    LotDto findById(Long id);
 
 }

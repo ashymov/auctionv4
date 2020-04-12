@@ -13,7 +13,11 @@ public class Bid {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "bid_id")
     private Long id;
+    @Column(name = "add_Date")
     private Date addDate;
+    @Column(name = "bid_val")
+    private double bidVal;
+    @Column(name = "bid_status")
     private boolean isActive;
     @ManyToOne
     @JoinColumn(name = "lot_id")
